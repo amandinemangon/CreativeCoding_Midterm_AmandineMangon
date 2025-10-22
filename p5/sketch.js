@@ -12,11 +12,11 @@ function draw() {
 }
 
 function windows(){
-  let lightBlue = color(242, 253, 255)
-  let darkBlue = color(4, 42, 74)
+  //let lightBlue = color(242, 253, 255)
+ // let darkBlue = color(4, 42, 74)
   
-  let speed = 2000;
-  let p
+  //let speed = 2000;
+ // let p
   
   fill(194, 223, 252);
   stroke(184, 176, 149);
