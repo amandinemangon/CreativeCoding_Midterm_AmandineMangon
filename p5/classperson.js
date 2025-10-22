@@ -1,0 +1,8 @@
+class person() {
+  constructor{
+
+  }
+
+display(){
+  }
+}
