@@ -42,7 +42,7 @@ function bed(){
   rect(350, 350, 560, 200);
 
 
-  // draw parallel diagonal stripes
+  // diagonal stripes
   stroke(252, 194, 227);
   strokeWeight(6);
   for (let i = 0; i < 30; i++) {
