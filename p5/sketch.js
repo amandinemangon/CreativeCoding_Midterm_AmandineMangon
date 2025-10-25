@@ -67,9 +67,9 @@ function bed(){
   endShape(CLOSE);
 }
 
-class person {
+class Person {
   constructor(x,y){
-    thix.x=x;
+    this.x=x;
     this.y =y;
   }
 
@@ -85,7 +85,6 @@ display(){
   curveVertex(this.x-30, this.y-20);
   curveVertex(this.x+28, this.y-10);
   curveVertex(this.x+35, this.y-8);
-
   endShape(CLOSE);
 
   }
