@@ -34,36 +34,35 @@ function windows(){
   rect(845 - rcurtainW, 20, rcurtainW, 245);
 }
 
-function bed(){
-  fill(252, 240, 247);
+ffunction bed(){
+  fill(255);//sheets
+  rect(350, 350, 550, 150);
+  
+  fill(252, 240, 247);//duvet
   stroke(252, 194, 227);
-  rect(350, 350, 560, 200);
+  rect(350, 350, 440, 150);
 
-
-  // diagonal stripes
-  stroke(252, 194, 227);
-  strokeWeight(6);
-  for (let i = 0; i < 30; i++) {
-    let offset = i * 20;
-    line(400 + offset, 550, 350 + offset, 352);
-  }
-  line (350, 430,380, 560);
+ stroke(252, 194, 227);
+ strokeWeight(6);
+ for (let x = 350; x <= 800; x += 20) {
+   line(x, 350, x, 550);
+ }
   
   //pillows
  fill(252, 194, 227);
   noStroke();
   beginShape();
-  vertex(800, 410);
-  vertex(775, 340);
-  vertex(875, 340);
-  vertex(900, 410);
+  vertex(850, 410);
+  vertex(825, 340);
+  vertex(925, 340);
+  vertex(950, 410);
   endShape(CLOSE);
   
   beginShape();
-  vertex(800, 510);
-  vertex(775, 440);
-  vertex(875, 440);
-  vertex(900, 510);
+  vertex(850, 510);
+  vertex(825, 440);
+  vertex(925, 440);
+  vertex(950, 510);
   endShape(CLOSE);
 }
 
