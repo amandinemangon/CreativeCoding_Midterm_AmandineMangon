@@ -1,5 +1,6 @@
 let lcurtainW = 355;
 let rcurtainW = 355;
+let curtainsOpen = false;
 let person1;
 
 function setup() {
@@ -8,6 +9,15 @@ function setup() {
 }
 
 function draw() {
+  if (!curtainsOpen){
+    scene1();
+  }else{
+    scene2();
+  }
+}
+
+
+ function scene1(){
   background(242, 237, 218);
   windows();
   bed();
@@ -32,6 +42,10 @@ function windows(){
   noStroke();
   rect(110, 20, lcurtainW, 245);
   rect(845 - rcurtainW, 20, rcurtainW, 245);
+
+  if (lcurtainW <=70 && rcurtainW<=70){
+    curtainsOpen = true;
+  }
 }
 
 function bed(){
@@ -67,29 +81,55 @@ function bed(){
   endShape(CLOSE);
 }
 
-class Person {
-  constructor(x,y){
-    this.x=x;
-    this.y =y;
-  }
+function scene2(){
+  background(186, 161, 123);
 
-display(){
-  fill(77, 48, 3);//person's hair
+  fill(255);//bed
   noStroke();
-  beginShape();
-  curveVertex(this.x-28, this.y-10);
-  curveVertex(this.x+35, this.y-8);
-  curveVertex(this.x+48, this.y+12);
-  curveVertex(this.x+35, this.y+32);
-  curveVertex(this.x-25, this.y+35);
-  curveVertex(this.x-30, this.y-20);
-  curveVertex(this.x+28, this.y-10);
-  curveVertex(this.x+35, this.y-8);
-  endShape(CLOSE);
+  rect(0, 0, 750, 500);
+ 
+  fill(252, 240, 247);//duvet
+  stroke(252, 194, 227);
+  strokeWeight(6);
+  rect(0, height / 2, 750, 255);
 
+  for (let y = height / 2; y < height; y += 20) {//stripes on bed
+    line(0, y, 750, y);
   }
 
-sleeping(){
+  noStroke();//pillows
+  fill(252, 194, 227);
+  rect(75, 45, 250, 195);
+  rect(400, 45, 250, 195);
 
+  fill(77, 48, 3);//person head
+  beginShape();
+  curveVertex(129, 222);
+  curveVertex(146, 167);
+  curveVertex(193, 102);
+  curveVertex(239, 148);
+  curveVertex(262, 222);
+  endShape(CLOSE);
 }
+
+class Person {
+  constructor(x, y){
+    this.x = x;
+    this.y = y;
+  }
+  display(){
+    fill(77, 48, 3);
+    noStroke();
+    beginShape();
+    curveVertex(this.x - 28, this.y - 10);
+    curveVertex(this.x + 35, this.y - 8);
+    curveVertex(this.x + 48, this.y + 12);
+    curveVertex(this.x + 35, this.y + 32);
+    curveVertex(this.x - 25, this.y + 35);
+    curveVertex(this.x - 30, this.y + 20);
+    curveVertex(this.x - 28, this.y - 10);
+    curveVertex(this.x + 35, this.y - 8);
+    endShape(CLOSE);
+  }
 }
+
