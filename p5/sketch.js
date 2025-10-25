@@ -1,10 +1,10 @@
 let lcurtainW = 355;
 let rcurtainW = 355;
-let person1
+let person1;
 
 function setup() {
   createCanvas(900, 500);
-  person1 = new Person
+  person1 = new Person(830, 365);
 }
 
 function draw() {
@@ -34,15 +34,16 @@ function windows(){
   rect(845 - rcurtainW, 20, rcurtainW, 245);
 }
 
-ffunction bed(){
+function bed(){
   fill(255);//sheets
+  noStroke();
   rect(350, 350, 550, 150);
   
   fill(252, 240, 247);//duvet
   stroke(252, 194, 227);
   rect(350, 350, 440, 150);
 
- stroke(252, 194, 227);
+ stroke(252, 194, 227);//stripes on bed
  strokeWeight(6);
  for (let x = 350; x <= 800; x += 20) {
    line(x, 350, x, 550);
@@ -73,8 +74,23 @@ class person {
   }
 
 display(){
-  fill(235, 202, 160);
+  fill(77, 48, 3);//person's hair
   noStroke();
-  ellipse(width/2, height/2, 20);
+  beginShape();
+  curveVertex(this.x-28, this.y-10);
+  curveVertex(this.x+35, this.y-8);
+  curveVertex(this.x+48, this.y+12);
+  curveVertex(this.x+35, this.y+32);
+  curveVertex(this.x-25, this.y+35);
+  curveVertex(this.x-30, this.y-20);
+  curveVertex(this.x+28, this.y-10);
+  curveVertex(this.x+35, this.y-8);
+
+  endShape(CLOSE);
+
   }
+
+sleeping(){
+
+}
 }
