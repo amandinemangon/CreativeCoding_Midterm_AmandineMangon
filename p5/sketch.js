@@ -9,6 +9,7 @@ function setup() {
 }
 
 function draw() {
+  print(mouseX, mouseY);
   if (!curtainsOpen){
     scene1();
   }else{
@@ -21,7 +22,11 @@ function draw() {
   background(242, 237, 218);
   windows();
   bed();
+  nightstand();
+  clock();
   person1.display();
+  
+  
 }
 
 function windows(){
@@ -79,6 +84,54 @@ function bed(){
   vertex(925, 440);
   vertex(950, 510);
   endShape(CLOSE);
+  
+}
+
+function nightstand(){
+  fill(51, 31, 7);//night stand
+  rect(100, 340, 200, 160);  
+  
+  fill(245, 206, 91);//perfume
+  stroke (255);
+  strokeWeight(2);
+  rect(195, 314, 20, 25);
+
+  fill(186, 186, 186);
+  noStroke();
+  rect(202, 308, 6, 5);
+  
+  fill(99, 12, 66);//book 1
+  rect(230, 330, 50, 10); 
+  
+  fill(255);
+  rect(233, 333, 44, 7);
+  
+  fill(145, 22, 98);//book 2
+  rect(235, 320, 40, 10);
+  
+  fill(255);
+  rect(238, 323, 34, 7)
+  
+}
+
+function clock(){
+  fill(255);
+  stroke(242, 90, 179);
+  strokeWeight(3);
+  ellipse (150, 320, 40, 40);//main circle
+  fill(242, 90, 179);
+  ellipse(150, 295, 5, 5);//top part
+  line(133, 331,128, 340);//outter lines
+  line(167, 331, 172, 340);
+  
+  //clock hands
+  push();
+  translate(150, 320);
+  rotate(frameCount * 0.002);
+  line(0, 0, 0, -15);
+  rotate(frameCount * 0.001);
+  line(0, 0, 0, -10);
+  pop(); 
 }
 
 function scene2(){
