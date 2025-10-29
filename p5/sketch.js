@@ -1,11 +1,28 @@
 let lcurtainW = 355;
 let rcurtainW = 355;
+
+let lightpink;
+let curtains;
+let darkpink;
+let hair;
+let skin;
+let shirt;
+let floorcolor;
+
 let curtainsOpen = false;
 let person1;
 
 function setup() {
   createCanvas(900, 500);
+  
+  lightpink = color(252, 240, 247);
+  darkpink = color(252, 194, 227);
+  hair = color (61, 37, 2);
+  floorcolor = color (186, 161, 123);
+  curtains = color(252, 194, 227, 200);
+  
   person1 = new Person(830, 365);
+  
 }
 
 function draw() {
@@ -25,8 +42,6 @@ function draw() {
   nightstand();
   clock();
   person1.display();
-  
-  
 }
 
 function windows(){
@@ -43,7 +58,7 @@ function windows(){
   if(lcurtainW > 70) lcurtainW -= 1;
   if(rcurtainW > 70) rcurtainW -= 1;
   
-  fill(252, 194, 227, 200);
+  fill(curtains);//curtains
   noStroke();
   rect(110, 20, lcurtainW, 245);
   rect(845 - rcurtainW, 20, rcurtainW, 245);
@@ -58,18 +73,18 @@ function bed(){
   noStroke();
   rect(350, 350, 550, 150);
   
-  fill(252, 240, 247);//duvet
-  stroke(252, 194, 227);
+  fill(lightpink);//duvet
+  stroke(darkpink);
   rect(350, 350, 440, 150);
 
- stroke(252, 194, 227);//stripes on bed
+ stroke(darkpink);//stripes on bed
  strokeWeight(6);
  for (let x = 350; x <= 800; x += 20) {
    line(x, 350, x, 550);
  }
   
   //pillows
- fill(252, 194, 227);
+ fill(darkpink);
   noStroke();
   beginShape();
   vertex(850, 410);
@@ -141,8 +156,8 @@ function scene2(){
   noStroke();
   rect(0, 0, 750, 500);
  
-  fill(252, 240, 247);//duvet
-  stroke(252, 194, 227);
+  fill(lightpink);//duvet
+  stroke(darkpink);
   strokeWeight(6);
   rect(0, height / 2, 750, 255);
 
@@ -151,11 +166,11 @@ function scene2(){
   }
 
   noStroke();//pillows
-  fill(252, 194, 227);
+  fill(darkpink);
   rect(75, 45, 250, 195);
   rect(400, 45, 250, 195);
 
-  fill(77, 48, 3);//person head
+  fill(hair);//person head
   beginShape();
   curveVertex(129, 222);
   curveVertex(146, 167);
@@ -171,7 +186,7 @@ class Person {
     this.y = y;
   }
   display(){
-    fill(77, 48, 3);
+    fill(hair);
     noStroke();
     beginShape();
     curveVertex(this.x - 28, this.y - 10);
