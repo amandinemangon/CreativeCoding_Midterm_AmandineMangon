@@ -20,15 +20,15 @@ let raindrops = [];
 function setup() {
   createCanvas(900, 500);
   
-  lightpink = color(252, 240, 247);
-  darkpink = color(252, 194, 227);
+  lightpink = color(204, 200, 202);
+  darkpink = color(168, 163, 166);
   hair = color (61, 37, 2);
-  floorcolor = color (186, 161, 123);
-  shirt = color(181, 9, 115);
+  floorcolor = color (133, 121, 102);
+  shirt = color(64, 52, 58);
   skin = color (230, 198, 163);
-  sky = color (194, 223, 252);
+  sky = color (213, 225, 237);
   rain = color (13, 45, 115, 100);
-  curtains = color(252, 194, 227, 200);
+  curtains = color(204, 200, 202, 200);
 
   for (let i = 0; i < 100; i++) {
     raindrops.push(new Raindrop());
@@ -117,10 +117,10 @@ function bed(){
   
 
 function nightstand(){
-  fill(51, 31, 7);//night stand
+  fill(60);//night stand
   rect(100, 340, 200, 160);  
   
-  fill(245, 206, 91);//perfume
+  fill(184, 175, 151);//perfume
   stroke (255);
   strokeWeight(2);
   rect(195, 314, 20, 25);
@@ -129,13 +129,13 @@ function nightstand(){
   noStroke();
   rect(202, 308, 6, 5);
   
-  fill(99, 12, 66);//book 1
+  fill(0);//book 1
   rect(230, 330, 50, 10); 
   
   fill(255);
   rect(233, 333, 44, 7);
   
-  fill(145, 22, 98);//book 2
+  fill(0);//book 2
   rect(235, 320, 40, 10);
   
   fill(255);
@@ -144,10 +144,10 @@ function nightstand(){
 
 function clock(){
   fill(255);
-  stroke(242, 90, 179);
+  stroke(darkpink);
   strokeWeight(3);
   ellipse (150, 320, 40, 40);//main circle
-  fill(242, 90, 179);
+  fill(darkpink);
   ellipse(150, 295, 5, 5);//top part
   line(133, 331,128, 340);//outer lines
   line(167, 331, 172, 340);
@@ -163,7 +163,8 @@ function clock(){
 }
 
 function scene2(){
-  background(186, 161, 123);
+  background(floorcolor);
+  frameRate(5);
 
   fill(255);//bed
   noStroke();
@@ -190,10 +191,15 @@ function scene2(){
   noStroke();
   ellipse(199, 126, 65, 80);
  
+  fill (207, 178, 147);//eyelid
+  noStroke();
+  ellipse(178, 110, 15, 15);
+  
   fill(255);//eye
   stroke(0);
   strokeWeight(0.5);
   ellipse(177, 113, 15, 10);
+  
   
 if (irisY < 115) {
   irisY = irisY + 0.1;
@@ -304,6 +310,10 @@ function scene4(){
   
 }
 
+
+let leftPupilX = 473;
+let rightPupilX = 535;
+
 function Person3(){
   let x = width/2;
   let y = height/2 + 250;
@@ -325,16 +335,27 @@ function Person3(){
   noStroke();
   ellipse(505, 170, 150, 200);
   
+  fill(207, 178, 147);//eyelids
+  noStroke();
+  ellipse (473, 143, 25, 20);//left
+  ellipse (535, 143, 25, 20);//right
+  
   fill(255);
   stroke(0);
-  strokeWeight(0.5);
-
-  ellipse (473, 146, 25, 17);
-  ellipse(535, 146, 25, 17);
+  strokeWeight(0.5);//eyes
+  ellipse (473, 146, 25, 17);//left
+  ellipse(535, 146, 25, 17);//right
   
-  fill(0);
-  ellipse(473, 146, 10, 10);
-  ellipse(535, 146, 10, 10);
+  if (leftPupilX > 463) {
+    leftPupilX -= 0.3;
+  }
+  if (rightPupilX > 525) {
+    rightPupilX -= 0.3;
+  }
+
+  fill(0);//pupil
+  ellipse(leftPupilX, 146, 10, 10);//left
+  ellipse(rightPupilX, 146, 10, 10);//right
   
   fill(shirt);
   noStroke();
